@@ -2,7 +2,7 @@
 An app to track actions performed in a django app
 
 =====
-Django_Actions_History
+django-track-actions
 =====
 
 Django_Actions_History is a simple Django app to track actions performed in a django app
@@ -16,15 +16,15 @@ Quick start
 
     INSTALLED_APPS = [
         ...
-        'Django_Actions_History',
+        'track_actions',
     ]
 
-2. Add `django_actions_history.requestMiddleware.RequestMiddleware` in settings under middlewares
+2. Add `track_actions.requestMiddleware.RequestMiddleware` in settings under middlewares
 
     MIDDLEWARE = [
         ... ,
-        'django_actions_history.requestMiddleware.RequestMiddleware',
+        'track_actions.requestMiddleware.RequestMiddleware',
     ]
 
 
-3. Run `python manage.py migrate` to create the History models.
+3. Run `python manage.py migrate track_actions` to create the History model.
