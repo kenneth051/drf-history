@@ -2,8 +2,13 @@
 import threading
 import copy
 
+try:
+    from django.utils.deprecation import MiddlewareMixin
+except ImportError:
+    MiddlewareMixin = object
 
-class RequestMiddleware(object):
+
+class RequestMiddleware(MiddlewareMixin):
     """Class for getting the current request"""
 
     _requestdata = {}
