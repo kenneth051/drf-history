@@ -4,6 +4,9 @@
 
 
 **DJANGO-TRACK-ACTIONS**
+---------------------------------
+
+
 Django-track-actions is a simple Django app to track actions performed in a django app
 
 Detailed documentation is in the "docs" directory.
