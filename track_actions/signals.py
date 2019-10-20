@@ -4,6 +4,7 @@ from django.dispatch import receiver
 
 from track_actions.constants import TABLES
 from track_actions.models import History
+
 # App Imports
 from track_actions.requestMiddleware import RequestMiddleware
 
