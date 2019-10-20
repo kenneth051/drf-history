@@ -1,0 +1,14 @@
+language: python
+python:
+  - "2.7"
+  - "3.5"
+  - "3.6"
+  - "3.7"
+install:
+  - pip install django
+  - pip install coverage
+  - pip install coveralls
+script:
+  - coverage run --source track_actions --omit="*/migrations*" runtests.py
+  - coverage report
+after_success: coveralls
