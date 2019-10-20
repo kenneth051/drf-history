@@ -5,14 +5,14 @@ An app to track actions performed in a django app
 django-track-actions
 =====
 
-Django_Actions_History is a simple Django app to track actions performed in a django app
+Django-track-actions is a simple Django app to track actions performed in a django app
 
 Detailed documentation is in the "docs" directory.
 
 Quick start
 -----------
 
-1. Add "Django_Actions_History" to your INSTALLED_APPS setting like this::
+1. Add "track_actions" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
