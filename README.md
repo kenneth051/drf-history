@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/kenneth051/django-track-actions.svg?branch=develop)](https://travis-ci.org/kenneth051/django-track-actions)
-
-[![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)
+[![Build Status](https://travis-ci.org/kenneth051/django-track-actions.svg?branch=develop)](https://travis-ci.org/kenneth051/django-track-actions)  [![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)   [![Maintainability](https://api.codeclimate.com/v1/badges/fc8a5a15c480d2ad117d/maintainability)](https://codeclimate.com/github/kenneth051/django-track-actions/maintainability)
 
 
 **DJANGO-TRACK-ACTIONS**
