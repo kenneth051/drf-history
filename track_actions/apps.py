@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
 
-class django_historyConfig(AppConfig):
-    name = "django_history"
+class track_actionsConfig(AppConfig):
+    name = "track_actions"
 
     def ready(self):
-        import django_history.signals
+        import track_actions.signals

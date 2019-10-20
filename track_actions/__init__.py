@@ -1,1 +1,1 @@
-default_app_config = "django_history.apps.django_historyConfig"
+default_app_config = "track_actions.apps.track_actionsConfig"

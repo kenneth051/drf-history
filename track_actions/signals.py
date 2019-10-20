@@ -2,15 +2,15 @@
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
 
-from django_history.constants import TABLES
-from django_history.models import History
+from track_actions.constants import TABLES
+from track_actions.models import History
 # App Imports
-from django_history.requestMiddleware import RequestMiddleware
+from track_actions.requestMiddleware import RequestMiddleware
 
 
 @receiver(post_save)
 @receiver(post_delete)
-def track_application_django_history(sender, instance, **kwargs):
+def track_application_track_actions(sender, instance, **kwargs):
     current_request = RequestMiddleware.get_request_data()[1]
     if (
         sender._meta.db_table not in TABLES

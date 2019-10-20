@@ -1,2 +1,2 @@
-django_history = (("POST", "POST"), ("DELETE", "DELETE"), ("PUT", "PUT"),("PATCH", "PATCH"))
-TABLES = ["django_history_history", "django_admin_log"]
+track_actions = (("POST", "POST"), ("DELETE", "DELETE"), ("PUT", "PUT"),("PATCH", "PATCH"))
+TABLES = ["track_actions_history", "django_admin_log"]
