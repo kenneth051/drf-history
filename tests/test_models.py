@@ -7,7 +7,6 @@ from django.urls import reverse
 class TestHistoryModel(BaseTests):
     def test_history_model(self):
         count = 0
-
         history = History(
             table_name="our model table",
             user=self.user,
@@ -17,7 +16,6 @@ class TestHistoryModel(BaseTests):
             response_data="{response data}",
         )
         history.save()
-
         self.assertEquals(History.objects.count(), count + 1)
 
     def test_todo_model(self):

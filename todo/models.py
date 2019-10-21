@@ -4,5 +4,7 @@ from django.contrib.auth import get_user_model
 
 
 class Todo(models.Model):
+    """our Todo model"""
+
     todo = models.CharField(max_length=255)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
