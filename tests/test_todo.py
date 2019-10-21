@@ -7,6 +7,9 @@ import ast
 
 class TestTodo(BaseTests):
     def test_create_todo(self):
+        """test to create a user todo and check if history model is populated 
+        with this todo since it is a post request"""
+
         login = self.client.login(username="testuser", password="12345")
         data = {"todo": "run tests"}
         response = self.client.post("/todo/", data)
@@ -23,6 +26,8 @@ class TestTodo(BaseTests):
         self.assertEquals(response_data["todo"], data["todo"])
 
     def test_delete_todo_gets_recorded_in_history_model(self):
+        """test to delete a todo and check if the deleted todo is saved in history table"""
+
         login = self.client.login(username="testuser", password="12345")
         data = {"todo": "work out"}
         response = self.client.post("/todo/", data)

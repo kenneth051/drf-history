@@ -7,6 +7,7 @@ from track_actions import constants
 
 
 class History(models.Model):
+    """History model to store user actions"""
     table_name = models.CharField(max_length=255, blank=False, editable=False)
     user = models.ForeignKey(get_user_model(), on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
