@@ -1,41 +1,69 @@
 from tests import BaseTests
 from track_actions.models import History
-from todo.models import Todo
+from app_test.models import Todo
 from django.urls import reverse
 import ast
+from rest_framework.reverse import reverse
 
 
 class TestTodo(BaseTests):
-    def test_create_todo(self):
-        """test to create a user todo and check if history model is populated 
-        with this todo since it is a post request"""
+    def test_create_to_do_without_authentication(self):
+        # create
+        data = {"action": "write code"}
+        response = self.client.post(
+            reverse("todo-list"), HTTP_AUTHORIZATION=None, data=data
+        )
+        self.assertEqual(response.status_code, 403)
 
-        login = self.client.login(username="testuser", password="12345")
-        data = {"todo": "run tests"}
-        response = self.client.post("/todo/", data)
-        self.assertEquals(response.status_code, 200)
-        self.assertContains(response, "csrfmiddlewaretoken")
-        self.assertContains(response, "<form")
-        self.assertContains(response, "run tests")
+    def test_create_to_do_with_bad_authentication(self):
+        data = {"action": "write code"}
+        response = self.client.post(
+            reverse("todo-list"), HTTP_AUTHORIZATION="None", data=data
+        )
+        self.assertEqual(response.status_code, 403)
 
+    def test_create_update_delete_to_do_get_history(self):
+        # create
+        data = {"action": "write code"}
+        response = self.client.post(
+            reverse("todo-list"),
+            HTTP_AUTHORIZATION=self.token,
+            data=data,
+            content_type="application/json",
+        )
+        self.assertEqual(response.status_code, 201)
         # check for history
-        history = History.objects.get(id=1)
-        self.assertEquals(history.__dict__["action"], "POST")
-        self.assertEquals(history.__dict__["table_name"], "todo_todo")
-        response_data = ast.literal_eval(history.__dict__["response_data"])
-        self.assertEquals(response_data["todo"], data["todo"])
-
-    def test_delete_todo_gets_recorded_in_history_model(self):
-        """test to delete a todo and check if the deleted todo is saved in history table"""
-
-        login = self.client.login(username="testuser", password="12345")
-        data = {"todo": "work out"}
-        response = self.client.post("/todo/", data)
-        response = self.client.delete(reverse("delete", args=(1,)))
-
-        # check for delete history
         history = History.objects.get(id=2)
+        self.assertEquals(history.__dict__["action"], "POST")
+        self.assertEquals(history.__dict__["table_name"], "app_test_todo")
+        request_data = ast.literal_eval(history.__dict__["request_data"])
+        self.assertEquals(request_data["action"], data["action"])
+
+        # update
+        data1 = {"action": "edit code"}
+        edit_todo_url = reverse("todo-detail", args={response.data.get("id")})
+        response = self.client.put(
+            edit_todo_url,
+            HTTP_AUTHORIZATION=self.token,
+            data=data1,
+            content_type="application/json",
+        )
+        self.assertEqual(response.status_code, 200)
+        # check for history
+        history = History.objects.get(id=3)
+        self.assertEquals(history.__dict__["action"], "PUT")
+        self.assertEquals(history.__dict__["table_name"], "app_test_todo")
+        request_data = ast.literal_eval(history.__dict__["request_data"])
+        self.assertEquals(request_data["action"], data1["action"])
+
+        # # delete
+        response = self.client.delete(
+            edit_todo_url,
+            HTTP_AUTHORIZATION=self.token,
+            content_type="application/json",
+        )
+        self.assertEqual(response.status_code, 204)
+        # check for delete history
+        history = History.objects.get(id=4)
         self.assertEquals(history.__dict__["action"], "DELETE")
-        self.assertEquals(history.__dict__["table_name"], "todo_todo")
-        response_data = ast.literal_eval(history.__dict__["response_data"])
-        self.assertEquals(response_data["todo"], data["todo"])
+        self.assertEquals(history.__dict__["table_name"], "app_test_todo")
