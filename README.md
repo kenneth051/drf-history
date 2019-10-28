@@ -13,13 +13,14 @@ Data being captured is
 -----------------------
 | Data | Description|
 | --- | --- |
-| User | The current loggedin user making the request|
+| user | The current loggedin user making the request|
 | request data(body) | Data being sent (POST, PATCH and  PUT)|
 | response data | response data after the request is complete |
 | table_name | name of the model the request is affecting |
 | instance_id | The id of the created, updated or deleted model instance |
 | method | The request method i.e POST, DELETE, PUT or PATCH |
-| |  |
+| created_at | Date time object for when the request is being carried out |
+| | |
 
 
 Quick start
