@@ -1,18 +1,19 @@
+# banka
 [![Build Status](https://travis-ci.org/kenneth051/django-track-actions.svg?branch=develop)](https://travis-ci.org/kenneth051/django-track-actions)  [![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)   [![Maintainability](https://api.codeclimate.com/v1/badges/fc8a5a15c480d2ad117d/maintainability)](https://codeclimate.com/github/kenneth051/django-track-actions/maintainability)
 
 
-**DJANGO-TRACK-ACTIONS**
+**DRF-HISTORY**
 ---------------------------------
 
 
-Django-track-actions is a simple Django app to track actions performed in a django app.
+drf-history is a simple Django rest framework app to track actions performed in a django app.
 The actions being tracked are *POST*,  *DELETE*, *PUT* and *PATCH*
 
 Data being captured is 
 -----------------------
 | Data | Description|
 | --- | --- |
-| User | The user making the request|
+| User | The current loggedin user making the request|
 | request data(body) | Data being sent (POST, PATCH and  PUT)|
 | response data | response data after the request is complete |
 | table_name | name of the model the request is affecting |
@@ -41,6 +42,26 @@ Quick start
 
 
 3. Run `python manage.py migrate track_actions` to create the History model.
+
+
+**To access the get history endpoint**
+
+In your project's url file
+
+1. `import track_actions` in your projects urls file
+
+2. Register the url in the urlpattern 
+        `path('track_actions/', include('track_actions.urls'))`
+
+3. visit the url in the browser or on postman
+        `http://127.0.0.1:8000/track_actions/history/`
+you should be able to see all the recorded history if you have `admin` priveleges and you are authenticated.
+
+
+**Alternatively**
+You can create your own endpoint to view all history from the History model by importing it in your views or serializers. 
+        `from track_actions.models import History`
+
 
 **NOTE**
 

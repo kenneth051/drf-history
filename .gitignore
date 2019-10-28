@@ -5,3 +5,6 @@ dist
 __pycache__
 .pytest_cache
 db.sqlite3
+*.egg-info
+.env
+Pipfile
