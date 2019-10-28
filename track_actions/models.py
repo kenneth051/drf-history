@@ -3,10 +3,12 @@ from datetime import datetime
 from django.contrib.auth import get_user_model
 from django.db import models
 
-from django_history import constants
+from track_actions import constants
 
 
 class History(models.Model):
+    """History model to store user actions"""
+
     table_name = models.CharField(max_length=255, blank=False, editable=False)
     user = models.ForeignKey(get_user_model(), on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
@@ -17,7 +19,7 @@ class History(models.Model):
         max_length=7,
         null=False,
         blank=False,
-        choices=constants.django_history,
+        choices=constants.track_actions,
         editable=False,
     )
     request_data = models.TextField(default="", editable=False)

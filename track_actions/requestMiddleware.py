@@ -2,8 +2,13 @@
 import threading
 import copy
 
+try:
+    from django.utils.deprecation import MiddlewareMixin
+except ImportError:
+    MiddlewareMixin = object
 
-class RequestMiddleware(object):
+
+class RequestMiddleware(MiddlewareMixin):
     """Class for getting the current request"""
 
     _requestdata = {}
@@ -21,7 +26,7 @@ class RequestMiddleware(object):
 
     @classmethod
     def get_request_data(cls, default=None):
-        """returns the current request or none if there is no request"""
+        """returns the current request and data"""
         return (
             cls._requestdata.get("body_data", None),
             cls._requestdata.get(threading.current_thread(), default),
