@@ -33,8 +33,6 @@ def track_user_actions(sender, instance, **kwargs):
             request_data = ""
         data = instance.__dict__.copy()
         data.__delitem__("_state")
-        if hasattr(data, "created_at"):
-            data["created_at"] = str(data["created_at"])
         try:
             history = History(
                 table_name=str(instance._meta.db_table),
