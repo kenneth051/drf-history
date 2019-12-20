@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="drf-history",
-    version="0.0.4",
+    version="0.0.5",
     packages=[
         "track_actions",
         "track_actions.migrations",
@@ -17,6 +17,7 @@ setup(
     description="A simple Django app to track create,update and delete actions.",
     long_description=README,
     long_description_content_type='text/markdown',
+    keywords="djangorestframework drf history django audit tracking",
     author="Ddumba Kenneth",
     author_email="kjdumba@gmail.com",
     url="https://github.com/kenneth051/django-track-actions",
