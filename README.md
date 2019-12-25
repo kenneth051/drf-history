@@ -80,6 +80,7 @@ you should be able to see all the recorded history if you have `admin` privelege
 
 
 **Alternatively**
+
 You can create your own endpoint to view all history from the History model by importing it in your views or serializers.
 
         `from track_actions.models import History`
