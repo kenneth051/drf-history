@@ -31,8 +31,3 @@ class RequestMiddleware(MiddlewareMixin):
             cls._requestdata.get("body_data", None),
             cls._requestdata.get(threading.current_thread(), default),
         )
-    @classmethod
-    def get_loggedIn_user(cls):
-        current_request = RequestMiddleware.get_request_data()[1]
-        if hasattr(current_request, "user"):
-            return current_request.user

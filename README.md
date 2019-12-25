@@ -5,7 +5,7 @@
 ---------------------------------
 
 
-drf-history is a simple django rest framework app to track actions performed in a django app.
+drf-history is a simple django rest framework app to track actions performed in a django app and to also get the current request.
 The actions being tracked are *POST*,  *DELETE*, *PUT* and *PATCH*
 
 Data being captured is 
@@ -43,6 +43,22 @@ Quick start
 
 
 3. Run `python manage.py migrate track_actions` to create the History model.
+
+After this every POST, UPDATE and DELETE action will be recorded in your database under the history model.
+
+
+**To get the current request**
+
+To get the current request in progress anywhere in the application.
+
+1. Import the relevant class.
+
+        from track_actions.requestMiddleware import RequestMiddleware
+
+
+2   Get the current request object.
+                                
+        current_request = RequestMiddleware.get_request_data()[1]
 
 
 **To access the get history endpoint**
