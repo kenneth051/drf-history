@@ -63,9 +63,10 @@ To get the current request in progress anywhere in the application.
 
 **To access the get history endpoint**
 
-In your project's url file
+1. In your project's url file
 
-1. `import track_actions` in your projects urls file
+
+        `import track_actions` 
 
 2. Register the url in the urlpattern 
 
