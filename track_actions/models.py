@@ -22,7 +22,7 @@ class History(models.Model):
         choices=constants.track_actions,
         editable=False,
     )
-    path=  models.CharField(max_length=255, default="", blank=False, editable=False)
+    path = models.CharField(max_length=255, default="", blank=False, editable=False)
     request_data = models.TextField(default="", editable=False)
     response_data = models.TextField(default="", editable=False)
 
