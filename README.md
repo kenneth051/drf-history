@@ -68,15 +68,19 @@ In your project's url file
 1. `import track_actions` in your projects urls file
 
 2. Register the url in the urlpattern 
+
         `path('track_actions/', include('track_actions.urls'))`
 
 3. visit the url in the browser or on postman
+
         `http://127.0.0.1:8000/track_actions/history/`
+        
 you should be able to see all the recorded history if you have `admin` priveleges and you are authenticated.
 
 
 **Alternatively**
-You can create your own endpoint to view all history from the History model by importing it in your views or serializers. 
+You can create your own endpoint to view all history from the History model by importing it in your views or serializers.
+
         `from track_actions.models import History`
 
 
