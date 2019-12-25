@@ -51,12 +51,14 @@ After this every POST, UPDATE and DELETE action will be recorded in your databas
 
 To get the current request in progress anywhere in the application.
 
-1. import 
+1. Import the relevant class.
 
         from track_actions.requestMiddleware import RequestMiddleware
 
 
-2.      current_request = RequestMiddleware.get_request_data()[1]
+2   Get the current request object.
+                                
+        current_request = RequestMiddleware.get_request_data()[1]
 
 
 **To access the get history endpoint**
