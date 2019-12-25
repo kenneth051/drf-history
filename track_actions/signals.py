@@ -40,6 +40,7 @@ def track_user_actions(sender, instance, **kwargs):
                 instance_id=instance.id,
                 action=current_request.method,
                 request_data=request_data,
+                path=current_request.path,
                 response_data=data,
             )
             history.save()

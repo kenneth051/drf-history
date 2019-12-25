@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kenneth051/django-track-actions.svg?branch=develop)](https://travis-ci.org/kenneth051/django-track-actions)  [![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)   [![Maintainability](https://api.codeclimate.com/v1/badges/fc8a5a15c480d2ad117d/maintainability)](https://codeclimate.com/github/kenneth051/django-track-actions/maintainability)  [![Downloads](https://pepy.tech/badge/drf-history)](https://pepy.tech/project/drf-history)   [![Downloads](https://pepy.tech/badge/drf-history/month)](https://pepy.tech/project/drf-history/month)  [![Downloads](https://pepy.tech/badge/drf-history/week)](https://pepy.tech/project/drf-history/week) 
+[![Build Status](https://travis-ci.org/kenneth051/drf-history.svg?branch=develop)](https://travis-ci.org/kenneth051/drf-history)  [![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)   [![Maintainability](https://api.codeclimate.com/v1/badges/fc8a5a15c480d2ad117d/maintainability)](https://codeclimate.com/github/kenneth051/django-track-actions/maintainability)  [![Downloads](https://pepy.tech/badge/drf-history)](https://pepy.tech/project/drf-history)   [![Downloads](https://pepy.tech/badge/drf-history/month)](https://pepy.tech/project/drf-history/month)  [![Downloads](https://pepy.tech/badge/drf-history/week)](https://pepy.tech/project/drf-history/week) 
 
 
 **DRF-HISTORY**
@@ -19,6 +19,7 @@ Data being captured is
 | instance_id | The id of the created, updated or deleted model instance |
 | method | The request method i.e POST, DELETE, PUT or PATCH |
 | created_at | Date time object for when the request is being carried out |
+| path | path the request is coming from |
 | | |
 
 
