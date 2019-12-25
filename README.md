@@ -5,7 +5,7 @@
 ---------------------------------
 
 
-drf-history is a simple django rest framework app to track actions performed in a django app and to also get the current request.
+drf-history is a simple django rest framework app to track actions performed in a django app and to also gets the current request.
 The actions being tracked are *POST*,  *DELETE*, *PUT* and *PATCH*
 
 Data being captured is 
