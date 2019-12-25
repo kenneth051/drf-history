@@ -44,6 +44,9 @@ Quick start
 
 3. Run `python manage.py migrate track_actions` to create the History model.
 
+        `python manage.py migrate track_actions`
+        
+
 After this every POST, UPDATE and DELETE action will be recorded in your database under the history model.
 
 
