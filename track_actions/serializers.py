@@ -13,5 +13,6 @@ class HistorySerializer(serializers.ModelSerializer):
             "user",
             "request_data",
             "response_data",
+            "path",
             "created_at",
         )
