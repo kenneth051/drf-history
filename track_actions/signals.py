@@ -16,7 +16,7 @@ import json
 @receiver(post_delete)
 def track_user_actions(sender, instance, **kwargs):
     """Signal function to track every change to a model
-    
+
     Arguments:
         sender {object} -- The model sending the signal
         instance {object} -- data instance
@@ -28,21 +28,34 @@ def track_user_actions(sender, instance, **kwargs):
         and hasattr(instance, "id")
     ):
         if RequestMiddleware.get_request_data()[0]:
-            request_data = json.loads(RequestMiddleware.get_request_data()[0])
+            request_data=decode_json(RequestMiddleware.get_request_data()[0])
         else:
             request_data = ""
         data = instance.__dict__.copy()
         data.__delitem__("_state")
-        try:
-            history = History(
-                table_name=str(instance._meta.db_table),
-                user=current_request.user,
-                instance_id=instance.id,
-                action=current_request.method,
-                request_data=request_data,
-                path=current_request.path,
-                response_data=data,
-            )
-            history.save()
-        except ValueError:
-            pass
+        save_history(instance, current_request, request_data, data)
+
+
+def decode_json(data):
+    request_data = ""
+    try:
+        request_data = json.loads(data)
+    except:
+        pass
+    return request_data
+
+
+def save_history(instance, current_request, request_data, data):
+    try:
+        history = History(
+            table_name=str(instance._meta.db_table),
+            user=current_request.user,
+            instance_id=instance.id,
+            action=current_request.method,
+            request_data=request_data,
+            path=current_request.path,
+            response_data=data,
+        )
+        history.save()
+    except ValueError:
+        pass
