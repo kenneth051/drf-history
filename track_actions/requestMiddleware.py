@@ -17,7 +17,11 @@ class RequestMiddleware(MiddlewareMixin):
         self.get_response = get_response
 
     def __call__(self, request):
-        self._requestdata["body_data"] = copy.copy(request.body.decode("utf-8"))
+        if request.content_type != "multipart/form-data":
+            self._requestdata["body_data"] = copy.copy(request.body.decode("utf-8"))
+        else:
+            self._requestdata["body_data"] = "Cannot log multipart/form-data"
+
         self._requestdata[threading.current_thread()] = request
         response = self.get_response(request)
 
