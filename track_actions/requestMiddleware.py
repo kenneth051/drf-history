@@ -17,8 +17,6 @@ class RequestMiddleware(MiddlewareMixin):
         self.get_response = get_response
 
     def __call__(self, request):
-        print(request.content_type)
-        print("***"*100)
         if request.content_type != "multipart/form-data":
             self._requestdata["body_data"] = copy.copy(request.body.decode("utf-8"))
         else:
