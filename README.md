@@ -50,10 +50,15 @@ Quick start
 After this every POST, UPDATE and DELETE action will be recorded in your database under the history model.
 
 **To prevent sensitive fields from being saved**
+
 For example `passwords`.
+
 You will have to create a yaml file called `drf_history.yaml` on the root of your django project.
-In this file add the following 
-`fields_to_exclude: ["password","another key here"]` You can then add all sensitve fields in the list. These fields will be removed from the saved request data. This will apply to all tables.
+In this file add the following. 
+
+`fields_to_exclude: ["password","another key here"]`
+
+You can then add all sensitve fields in the list separated by commas. These fields will be removed from the saved request data. This will apply to all tables.
 
 This is only for data sent in the request. 
 
