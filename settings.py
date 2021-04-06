@@ -10,6 +10,7 @@ from django.conf import settings
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 settings.configure(
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
     DEBUG=True,
     USE_TZ=True,
     DATABASES={
