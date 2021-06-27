@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="drf-history",
-    version="1.0.0",
+    version="1.0.1",
     packages=[
         "track_actions",
         "track_actions.migrations",

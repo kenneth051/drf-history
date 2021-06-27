@@ -41,7 +41,8 @@ def track_user_actions(sender, instance, **kwargs):
         data = instance.__dict__.copy()
         data.__delitem__("_state")
         if "drf_history.yaml" in os.listdir(settings.BASE_DIR):
-            yaml_file = open(settings.BASE_DIR + "/drf_history.yaml", "r")
+            #yaml_file = open(settings.BASE_DIR + "/drf_history.yaml", "r")
+            yaml_file = open(os.path.join(settings.BASE_DIR)+"/drf_history.yaml", "r")
             yaml_content = yaml.load(yaml_file, Loader=Loader)
             if (
                 type(yaml_content) is dict
