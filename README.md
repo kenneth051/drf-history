@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/kenneth051/drf-history.svg?branch=develop)](https://travis-ci.org/kenneth051/drf-history)  [![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)   [![Maintainability](https://api.codeclimate.com/v1/badges/fc8a5a15c480d2ad117d/maintainability)](https://codeclimate.com/github/kenneth051/django-track-actions/maintainability)  [![Downloads](https://pepy.tech/badge/drf-history)](https://pepy.tech/project/drf-history)   [![Downloads](https://pepy.tech/badge/drf-history/month)](https://pepy.tech/project/drf-history/month)  [![Downloads](https://pepy.tech/badge/drf-history/week)](https://pepy.tech/project/drf-history/week) 
+[![Build Status](https://travis-ci.org/kenneth051/drf-history.svg?branch=develop)](https://travis-ci.org/kenneth051/drf-history)  [![Coverage Status](https://coveralls.io/repos/github/kenneth051/django-track-actions/badge.svg?branch=develop)](https://coveralls.io/github/kenneth051/django-track-actions?branch=develop)   [![Maintainability](https://api.codeclimate.com/v1/badges/fc8a5a15c480d2ad117d/maintainability)](https://codeclimate.com/github/kenneth051/django-track-actions/maintainability)  [![Downloads](https://pepy.tech/badge/drf-history)](https://pepy.tech/project/drf-history)   [![Downloads](https://pepy.tech/badge/drf-history/month)](https://pepy.tech/project/drf-history/month)  [![Downloads](https://pepy.tech/badge/drf-history/week)](https://pepy.tech/project/drf-history/week) [![PyPI version](https://badge.fury.io/py/drf-history.svg)](https://badge.fury.io/py/drf-history)
 
 
 **DRF-HISTORY**
@@ -48,6 +48,19 @@ Quick start
         
 
 After this every POST, UPDATE and DELETE action will be recorded in your database under the history model.
+
+**To prevent sensitive fields from being saved**
+
+For example `passwords`.
+
+You will have to create a yaml file called `drf_history.yaml` on the root of your django project.
+In this file add the following. 
+
+`fields_to_exclude: ["password","another key here"]`
+
+You can then add all sensitve fields in the list separated by commas. These fields will be removed from the saved request data. This will apply to all tables.
+
+This is only for data sent in the request. 
 
 
 **To get the current request**
