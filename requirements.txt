@@ -31,7 +31,7 @@ regex==2021.4.4
 requests==2.22.0
 requests-toolbelt==0.9.1
 six==1.12.0
-sqlparse==0.3.0
+sqlparse==0.4.4
 toml==0.10.2
 tqdm==4.36.1
 twine==3.1.1
