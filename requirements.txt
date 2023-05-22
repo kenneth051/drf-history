@@ -28,7 +28,7 @@ pytz==2019.3
 PyYAML==5.4.1
 readme-renderer==24.0
 regex==2021.4.4
-requests==2.22.0
+requests==2.31.0
 requests-toolbelt==0.9.1
 six==1.12.0
 sqlparse==0.3.0
