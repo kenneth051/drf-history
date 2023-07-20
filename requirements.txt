@@ -20,7 +20,7 @@ packaging==20.9
 pathspec==0.8.1
 pkginfo==1.5.0.1
 psycopg2==2.8.4
-Pygments==2.7.4
+Pygments==2.15.0
 PyJWT==2.4.0
 pyparsing==2.4.7
 python-decouple==3.1
